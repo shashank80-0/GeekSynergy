@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+
+		<meta charset="utf-8">
+		<meta name="viewport" content="device-width, initial-scale=1, shrink-to-fit=no">
+
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+		<title>Login</title>
+
+	
+		<style>
+
+			html,
+			body {
+  				height: 100%;
+			}
+		
+			body {
+        		display: -ms-flexbox;
+  				display: flex;
+  				-ms-flex-align: center;
+  				align-items: center;
+        		padding-top: 20px;
+  				padding-bottom: 20px;
+  				background-color: #f5f5f5;
+        	}
+
+        	.signInForm {
+  				width: 100%;
+  				max-width: 640px;
+  				padding: 5px;
+  				margin:auto;
+        	}
+
+        	.signInForm .checkbox {
+  				font-weight: 400;
+			}
+
+			.signInForm .form-control {
+  				position: relative;
+  				box-sizing: border-box;
+  				height: auto;
+  				padding: 10px;
+  				font-size: 16px;
+			}        
+
+		</style>
+
+	</head>
+
+	<body class="text-center">
+
+		<form class="signInForm" name="sign-in" onsubmit="return validateForm()" action="" method="POST">
+			
+			<img src="{{ url_for('static',filename='geeksynergy.jpg') }}" height="60px" class="mb-2" alt="" >
+			
+			<h2 class="h2 mb-3 font-weight-light" align="center">Sign in</h2>
+			
+			<div class="form-group col-md-6 container">
+				<label for ="inputName" class="sr-only">Name</label>
+				<input type="text" class="form-control" id="inputName" autocomplete="on" name = "name" autofocus="" placeholder="Name">			
+			</div>
+
+			<div class="form-group col-md-6 container">
+				<label for = "inputPassword" class="sr-only">Password</label>
+				<input type="Password" class="form-control" id="inputPassword" onfocus="(this.type='text')" onblur="(this.type='password')" onpaste = "return false" oncopy ="return false" ondrop = "return false" placeholder="Password" name="password">
+			</div>
+
+			<button type="submit" class="btn btn-primary">Login</button>
+
+			<div style="margin-top: 5px"> 
+				<a href="/signup">Register new user</a>
+			</div>
+
+			<div align="center" style="padding: 5px" class="text-danger">
+				{% if message %}
+				<p><strong ></strong>{{ message }}</p>
+				{% endif %}
+			</div>
+
+			<div align="center" class="text-success">
+				{% with signup_message = get_flashed_messages() %}
+	         		{% if signup_message %}
+	         			{% for message in signup_message %}
+	            			<p><strong></strong>{{ message }}</p>
+	            		{% endfor %}
+         			{% endif %}
+      			{% endwith %}
+      		</div>
+
+		</form>
+
+		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    	<script type="text/javascript" src="\static\login.js"></script>    
+
+	</body>
+
+</html>

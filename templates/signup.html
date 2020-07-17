@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+
+		<!--Required meta tags -->
+		<meta charset="utf-8">
+		<meta name="viewport" content="device-width, initial-scale=1, shrink-to-fit=no">
+
+		<!-- Bootstrap css-->
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+		<title>Signup</title>
+
+		<style>
+
+			html,
+			body {
+  				height: 100%;
+			}
+
+        	.detailForm {
+  				width: 100%;
+  				max-width: 400px;
+  				padding: 15px;
+  				margin:auto;
+        	}
+
+        	body{
+        		display: -ms-flexbox;
+  				display: flex;
+  				-ms-flex-align: center;
+  				align-items: center;
+        		padding-top: 20px;
+  				padding-bottom: 20px;
+  				background-color: #f5f5f5;
+        	}
+
+		</style>
+
+	</head>
+
+	<body>
+
+		<form class="detailForm container" name="myForm" onsubmit="return validatForm()" method="POST" action="">
+
+			<div align="center">
+				<img src="\static\geeksynergy.jpg" height="60px" class="mb-2" alt="" >
+			</div>
+
+			<h2 class="h2 mb-3 font-weight-light" align="center">Sign up</h2>
+
+			<div class="form-group">
+				<label for ="inputName">Name</label>
+				<input type="text" class="form-control" id="inputName" autocomplete="on" autofocus="" name = "name">			
+			</div>
+
+			<div class="form-group">
+				<label for="inputPhone">Phone number</label>
+				<input type="Phone" class="form-control" id="inputPhone" maxlength="10" autocomplete="on" onkeypress="return isNumberKey(event)" name="phone">	
+			</div>
+
+			<div class="form-group">
+				<label for = "inputEmail">Email address</label>
+				<input type="email" class="form-control" id="inputEmail" placeholder="name@example.com" autocomplete="on" name = "email">
+			</div>
+
+			<div class="form-group">
+				<label for = "inputPassword">Password</label>
+				<input type="password" class="form-control" id="inputPassword" aria-describedby = "passwordHelp" onfocus="(this.type='text')" onblur="(this.type='password')" oncopy = "return false" onpaste = "return false" ondrop="return false" data-toggle="tooltip" data-placement="bottom" title="Your password must be 8-20 characters long containing alphabets, numbers and  these special characters only [@,$,_]." name="password">
+			</div>
+
+			<div class="form-group">
+				<label for = "inputProfession">Profession</label>
+				<select class="form-control" id="inputProfession" name="profession">
+					<option>Engineer</option>
+					<option>Doctor</option>
+					<option>Freelancer</option>
+					<option>Entrepreneur</option>
+					<option>Artist</option>
+					<option>Other..</option>					
+				</select>
+			</div>
+
+			<div align="center">
+				<button type="submit" class="btn btn-primary">Submit</button>
+			</div>
+
+
+			<div align="center" style="padding: 2rem" class="text-danger">
+				{% if error %}
+				<p><strong></strong>{{ message }}</p>
+				{% endif %}
+			</div>
+		
+		</form>
+
+
+		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+		<script type="text/javascript" src="\static\signup.js"></script>    
+
+	</body>
+
+</html>
